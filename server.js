@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
+const path = require('path');
 
 dotenv.config();
 
@@ -11,6 +12,11 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
+
+// Handle favicon requests
+app.get('/favicon.ico', (req, res) => {
+  res.status(204).end(); // No content response
+});
 
 // Create a transporter using Gmail
 const transporter = nodemailer.createTransport({
