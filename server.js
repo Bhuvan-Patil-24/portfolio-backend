@@ -9,7 +9,7 @@ const app = express();
 
 // Configure CORS
 app.use(cors({
-  origin: 'http://localhost:5000', // Your frontend URL
+  origin: 'http://localhost:3000', //  frontend URL
   methods: ['GET', 'POST'],
   credentials: true
 }));
