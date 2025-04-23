@@ -9,7 +9,7 @@ const app = express();
 
 // Configure CORS
 app.use(cors({
-  origin: 'http://localhost:3000', //  frontend URL
+  origin: ['http://localhost:3000', 'https://portfolio-bhuvanpatil.vercel.app'], //  frontend URL
   methods: ['GET', 'POST'],
   credentials: true
 }));
@@ -67,5 +67,6 @@ app.post('/send-email', async (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
+  document.write("You are going good")
   console.log(`Server running on port ${PORT}`);
 }); 
