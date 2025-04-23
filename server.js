@@ -7,12 +7,8 @@ dotenv.config();
 
 const app = express();
 
-// Configure CORS
-app.use(cors({
-  origin: ['http://localhost:3000', 'https://portfolio-bhuvanpatil.vercel.app'], //  frontend URL
-  methods: ['GET', 'POST'],
-  credentials: true
-}));
+// Configure CORS - allow all origins in development
+app.use(cors());
 
 app.use(express.json());
 
@@ -32,6 +28,11 @@ transporter.verify((error, success) => {
   } else {
     console.log('Server is ready to send emails');
   }
+});
+
+// Add a root route
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Welcome to Bhuvan Patil Portfolio API' });
 });
 
 app.post('/send-email', async (req, res) => {
@@ -67,6 +68,5 @@ app.post('/send-email', async (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  document.write("You are going good")
   console.log(`Server running on port ${PORT}`);
 }); 
