@@ -8,8 +8,18 @@ dotenv.config();
 
 const app = express();
 
-// Configure CORS - allow all origins in development
-app.use(cors());
+// Configure CORS with specific domains
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://portfolio-bhuvanpatil.vercel.app',
+    'https://bhuvanpatil.vercel.app',
+    'https://bhuvan-portfolio.vercel.app'
+  ],
+  methods: ['GET', 'POST', 'OPTIONS'],
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use(express.json());
 
@@ -42,6 +52,11 @@ app.get('/', (req, res) => {
 });
 
 app.post('/send-email', async (req, res) => {
+  // Set CORS headers explicitly for this route
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
