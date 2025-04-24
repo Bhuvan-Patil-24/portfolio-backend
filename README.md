@@ -55,12 +55,12 @@ To run the backend locally, follow these steps:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/Bhuvan-Patil-24/Portfolio_Website.git
+   git clone https://github.com/Bhuvan-Patil-24/portfolio-backend.git
    ```
 
 2. Navigate to the backend directory:
    ```
-   cd Portfolio_Website/Backend
+   cd portfolio-backend
    ```
 
 3. Install dependencies:

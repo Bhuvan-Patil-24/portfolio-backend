@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
-const path = require('path');
 
 dotenv.config();
 
@@ -12,9 +11,7 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://portfolio-bhuvanpatil.vercel.app',
-    'https://bhuvanpatil.vercel.app',
-    'https://bhuvan-portfolio.vercel.app'
+    'https://portfolio-bhuvanpatil.vercel.app'
   ],
   methods: ['GET', 'POST', 'OPTIONS'],
   credentials: true,
